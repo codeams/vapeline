@@ -1,5 +1,5 @@
 
-let lista = require('./lista').lista
+let lista = require('./lista')
 let vapeline = require('../vapeline')
 
 let filters = [

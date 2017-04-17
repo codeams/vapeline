@@ -1,5 +1,4 @@
-module.exports = {  
-  lista: [
+  let lista = [
     {
       name: "Alejandro Montañez",
       age: 21,
@@ -16,4 +15,5 @@ module.exports = {
       gender: "Male"
     }
   ]
-}
+
+module.exports = lista
