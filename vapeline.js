@@ -27,8 +27,10 @@ let filter = (list, filters) => {
   return list
 }
 
-module.exports = {
+let vapeline = {
   isPartOf: isPartOf,
   filterBy: filterBy,
   filter: filter
 }
+
+module.exports = vapeline
