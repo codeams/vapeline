@@ -2,7 +2,7 @@
 let lista = require('./lista').lista
 let vapeline = require('../vapeline')
 
-let result = vapeline.filter(lista, [
+let filters = [
   {
     attribute: 'name',
     value: 'Alejandro',
@@ -15,6 +15,8 @@ let result = vapeline.filter(lista, [
     permissive: true,
     caseSensitive: false
   }
-])
+]
+
+let result = vapeline.filter(lista, filters)
 
 console.log(result)
