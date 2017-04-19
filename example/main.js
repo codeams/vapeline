@@ -4,19 +4,19 @@ let vapeline = require('../vapeline')
 
 let filters = [
   {
-    attributes: ['fname'],
+    attribute: 'fname',
     values: ['Alejandro', 'Ricarda'],
-    permissive: true,
+    partialMatches: true,
     caseSensitive: false
   },
   {
-    attributes: ['lname'],
-    values: ['Cervantes'],
-    permissive: true,
+    attribute: 'lname',
+    values: ['salazar'],
+    partialMatches: true,
     caseSensitive: false
   }
 ]
 
-let result = vapeline.filter(lista, filters)
+let result = vapeline.pipe(lista, filters)
 
 console.log(result)
