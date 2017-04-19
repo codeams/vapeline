@@ -1,27 +1,37 @@
 
-let isPartOf = (substr, str) => {
-  return str.indexOf(substr) >= 0
-}
+/* Transformers */
+let arrayToLowerCase = arr => arr.map(elem => elem.toLowerCase())
 
-let filterBy = (list, attribute, value, permissive, caseSensitive) => {
+/* Information bridgers */
+let isPartOf = (substr, str) => str.indexOf(substr) >= 0
+
+/* The actual vapeline */
+let filterBy = (list, attributes, values, permissive, caseSensitive) => {
   if (caseSensitive) { // Of course, false by default
-    attribute = attribute.toLowerCase()
-    value = value.toLowerCase()
+    attributes = arrayToLowerCase(attributes)
+    values = arrayToLowerCase(values)
   }
 
-  if (permissive) return list.filter((element) => { // Also false by default
-    return isPartOf(value, element[attribute])
-  })
-  else return list.filter((element) => {
-    return value === element[attribute]
+  /*MIDDLE IMPLEMENTATION*/
+  let attribute = attributes[0]
+  /*END MIDDLE IMPLEMENTATION*/
+
+  return list.filter(element => {
+    let satisfy = false
+    for (let index in values) {
+      if (isPartOf(values[index], element[attribute])) {
+        satisfy = true
+        break
+      }
+    }
+    return satisfy
   })
 }
 
 let filter = (list, filters) => {
-  if (!(filters instanceof Array)) filters = [filters]
-
-  filters.forEach(function(filter) {
-    list = filterBy(list, filter.attribute, filter.value, filter.permissive)
+  //if (!(filters instanceof Array)) filters = [filters]
+  filters.forEach(filter => {
+    list = filterBy(list, filter.attributes, filter.values, filter.permissive, filter.caseSensitive)
   })
 
   return list

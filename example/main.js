@@ -4,14 +4,14 @@ let vapeline = require('../vapeline')
 
 let filters = [
   {
-    attribute: 'name',
-    value: 'Alejandro',
+    attributes: ['fname'],
+    values: ['Alejandro', 'Ricarda'],
     permissive: true,
     caseSensitive: false
   },
   {
-    attribute: 'name',
-    value: 'Montañez',
+    attributes: ['lname'],
+    values: ['Cervantes'],
     permissive: true,
     caseSensitive: false
   }

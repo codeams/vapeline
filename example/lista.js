@@ -1,17 +1,20 @@
   let lista = [
     {
-      name: "Alejandro Montañez",
+      fname: "Alejandro",
+      lname: "Montañez",
       age: 21,
       gender: "Male"
     },
     {
-      name: "Asdfjandro Montañez",
-      age: 21,
-      gender: "Male"
+      fname: "Ricarda",
+      lname: "Salazar",
+      age: 19,
+      gender: "Female"
     },
     {
-      name: "Alejandro Montañez",
-      age: 21,
+      fname: "Benito",
+      lname: "Juárez",
+      age: 18,
       gender: "Male"
     }
   ]
