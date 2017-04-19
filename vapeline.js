@@ -1,9 +1,8 @@
 
-/* Transformers */
-let forceArray = obj => obj instanceof Array ? obj : [obj]
-
-/* Information bridgers */
-let isPartOf = (substr, str) => str.indexOf(substr) >= 0
+/* Helpers */
+let forceArray = x => x instanceof Array ? x : [x]
+let isPartOf = (x, y) => y.indexOf(x) >= 0
+let compare = (x, y, permissive) => permissive ? isPartOf(x, y) : x === y
 
 
 /* The actual vapeline */
@@ -20,7 +19,7 @@ let vape = (list, attr, values, permissive, sensitive) => {
         compareTo = compareTo.toLowerCase()
       }
 
-      if (isPartOf(value, compareTo)) {
+      if (compare(value, compareTo, permissive)) {
         satisfy = true
         break
       }
