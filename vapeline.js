@@ -1,7 +1,6 @@
 
 /* Transformers */
 let forceArray = obj => obj instanceof Array ? obj : [obj]
-let arrayToLowerCase = arr => arr.map(elem => elem.toLowerCase())
 
 /* Information bridgers */
 let isPartOf = (substr, str) => str.indexOf(substr) >= 0
