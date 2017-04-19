@@ -41,6 +41,8 @@ let pipe = (list, filters) => {
   filters = forceArray(filters)
 
   return filters.reduce((list, filter) => {
+    if (!filter) return list
+
     let { attribute: attr } = filter
     let { values } = filter
     let { partialMatches: permissive } = filter
