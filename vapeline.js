@@ -7,16 +7,20 @@ let arrayToLowerCase = arr => arr.map(elem => elem.toLowerCase())
 let isPartOf = (substr, str) => str.indexOf(substr) >= 0
 
 /* The actual vapeline */
-let filterBy = (list, attribute, values, permissive, caseSensitive) => {
-  if (caseSensitive) { // Of course, false by default
-    attribute = attribute.toLowerCase()
-    values = arrayToLowerCase(values)
-  }
+let filterBy = (list, attr, values, permissive, sensitive) => {
 
   return list.filter(element => {
     let satisfy = false
     for (let index in values) {
-      if (isPartOf(values[index], element[attribute])) {
+      let value = values[index]
+      let compareTo = element[attr]
+
+      if (!sensitive) { // Of course, false by default
+        value = value.toLowerCase()
+        compareTo = compareTo.toLowerCase()
+      }
+
+      if (isPartOf(value, compareTo)) {
         satisfy = true
         break
       }
@@ -28,8 +32,13 @@ let filterBy = (list, attribute, values, permissive, caseSensitive) => {
 let filter = (list, filters) => {
   filters = forceArray(filters)
   
-  return filters.reduce((list, { attribute, values, permissive, caseSensitive }) => {
-    return filterBy(list, attribute, values, permissive, caseSensitive)
+  return filters.reduce((list, filter) => {
+    let { attribute: attr } = filter
+    let { values: values } = filter
+    let { partialMatches: permissive } = filter
+    let { caseSensitive: sensitive } = filter
+
+    return filterBy(list, attr, values, permissive, sensitive)
   }, list)
 }
 

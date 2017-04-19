@@ -6,14 +6,14 @@ let filters = [
   {
     attribute: 'fname',
     values: ['Alejandro', 'Ricarda'],
-    permissive: true,
+    partialMatches: true,
     caseSensitive: false
   },
   {
     attribute: 'lname',
-    values: ['Salazar'],
-    permissive: true,
-    caseSensitive: false
+    values: ['salazar'],
+    partialMatches: true,
+    caseSensitive: true
   }
 ]
 
