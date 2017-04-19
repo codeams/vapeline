@@ -11,7 +11,7 @@ let filters = [
   },
   {
     attributes: ['lname'],
-    values: ['Cervantes'],
+    values: ['Salazar'],
     permissive: true,
     caseSensitive: false
   }

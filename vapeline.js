@@ -1,5 +1,6 @@
 
 /* Transformers */
+let forceArray = obj => obj instanceof Array ? obj : [obj]
 let arrayToLowerCase = arr => arr.map(elem => elem.toLowerCase())
 
 /* Information bridgers */
@@ -29,8 +30,10 @@ let filterBy = (list, attributes, values, permissive, caseSensitive) => {
 }
 
 let filter = (list, filters) => {
-  //if (!(filters instanceof Array)) filters = [filters]
+  filters = forceArray(filters)
+  
   filters.forEach(filter => {
+    let { attributes, values, permissive, caseSensitive } = filter
     list = filterBy(list, filter.attributes, filter.values, filter.permissive, filter.caseSensitive)
   })
 
