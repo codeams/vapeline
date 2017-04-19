@@ -13,10 +13,10 @@ let filters = [
     attribute: 'lname',
     values: ['salazar'],
     partialMatches: true,
-    caseSensitive: true
+    caseSensitive: false
   }
 ]
 
-let result = vapeline.filter(lista, filters)
+let result = vapeline.pipe(lista, filters)
 
 console.log(result)

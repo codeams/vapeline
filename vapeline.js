@@ -5,8 +5,9 @@ let forceArray = obj => obj instanceof Array ? obj : [obj]
 /* Information bridgers */
 let isPartOf = (substr, str) => str.indexOf(substr) >= 0
 
+
 /* The actual vapeline */
-let filterBy = (list, attr, values, permissive, sensitive) => {
+let vape = (list, attr, values, permissive, sensitive) => {
 
   return list.filter(element => {
     let satisfy = false
@@ -28,7 +29,7 @@ let filterBy = (list, attr, values, permissive, sensitive) => {
   })
 }
 
-let filter = (list, filters) => {
+let pipe = (list, filters) => {
   filters = forceArray(filters)
   
   return filters.reduce((list, filter) => {
@@ -37,10 +38,10 @@ let filter = (list, filters) => {
     let { partialMatches: permissive } = filter
     let { caseSensitive: sensitive } = filter
 
-    return filterBy(list, attr, values, permissive, sensitive)
+    return vape(list, attr, values, permissive, sensitive)
   }, list)
 }
 
 /* Exporting vapes */
-let vapeline = { filterBy, filter }
+let vapeline = { vape, pipe }
 module.exports = vapeline
