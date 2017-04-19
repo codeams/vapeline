@@ -32,12 +32,9 @@ let filterBy = (list, attributes, values, permissive, caseSensitive) => {
 let filter = (list, filters) => {
   filters = forceArray(filters)
   
-  filters.forEach(filter => {
-    let { attributes, values, permissive, caseSensitive } = filter
-    list = filterBy(list, filter.attributes, filter.values, filter.permissive, filter.caseSensitive)
-  })
-
-  return list
+  return filters.reduce((list, { attributes, values, permissive, caseSensitive }) => {
+    return filterBy(list, attributes, values, permissive, caseSensitive)
+  }, list)
 }
 
 let vapeline = {
