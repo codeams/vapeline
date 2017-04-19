@@ -48,6 +48,8 @@ let pipe = (list, filters) => {
     let { partialMatches: permissive } = filter
     let { caseSensitive: sensitive } = filter
 
+    values = forceArray(values)
+
     return vape(list, attr, values, permissive, sensitive)
   }, list)
 }
