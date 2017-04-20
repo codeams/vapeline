@@ -1,11 +1,11 @@
 
 let lista = require('./lista')
-let vapeline = require('../vapeline2')
+let vapeline = require('../vapeline')
 
 let filters = [
   {
     type: 'filter',
-    attribute: 'fname',
+    attribute: 'age',
     values: ['Ricarda', 'Alejandro'],
     partialMatches: true,
     caseSensitive: false

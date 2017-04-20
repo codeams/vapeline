@@ -8,7 +8,12 @@
     {
       fname: "Ricarda",
       lname: "Salazar",
-      age: 19,
+      age: [
+        13,
+        13,
+        23,
+        65
+      ],
       gender: "Female"
     },
     {
