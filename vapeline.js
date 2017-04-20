@@ -3,13 +3,13 @@
 let isDefined = x => x !== false && x !== undefined && x !== null
 let isPartOf = (x, y) => y.indexOf(x) >= 0
 let areEqual = (x, y, permissive, sensitive) => {
-    if (!sensitive) {
-      x = x.toLowerCase()
-      y = y.toLowerCase()
-    }
+  if (!sensitive) {
+    x = x.toLowerCase()
+    y = y.toLowerCase()
+  }
 
-    if (permissive) return isPartOf(x, y)
-    else return x === y
+  if (permissive) return isPartOf(x, y)
+  else return x === y
 }
 
 /* Transformers */
