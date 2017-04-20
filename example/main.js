@@ -1,22 +1,24 @@
 
 let lista = require('./lista')
-let vapeline = require('../vapeline')
+let vapeline = require('../vapeline2')
 
 let filters = [
   {
+    type: 'filter',
     attribute: 'fname',
-    values: ['Alejandro', 'Ricarda'],
+    values: ['Ricarda', 'Alejandro'],
     partialMatches: true,
     caseSensitive: false
   },
   {
-    attribute: 'lname',
-    values: ['salazar'],
+    type: 'search',
+    attributes: ['lname'],
+    value: 'salazar',
     partialMatches: true,
     caseSensitive: false
   }
 ]
 
-let result = vapeline.pipe(lista, filters)
+let result = vapeline(lista, filters)
 
-console.log(result)
+console.log('RESULT', result)
